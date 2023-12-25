@@ -1,0 +1,18 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: blackscholes
+  namespace: blackscholes
+spec:
+  template:
+    metadata:
+      labels:
+        app: blackscholes
+        k8s-app: blackscholes
+        namespace: blackscholes
+    spec:
+      containers:
+      - image: docker.io/danielcatu/parsec:latest
+        name: blackscholes
+        ports:
+        - containerPort: 8080
